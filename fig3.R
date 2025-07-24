@@ -25,8 +25,8 @@ library(data.table)
 # Load confirmed classification results
 df <- read.csv("confirmed_resuts.csv")
 
-# Recode manual labels: "F" = Incorrect, "U" and "T" = Correct
-df$MANUAL.ID <- dplyr::recode(df$MANUAL.ID, "F" = "Incorrect", "U" = "Correct", "T" = "Correct")
+# Recode manual labels: "F" = Incorrect and "T" = Correct
+df$MANUAL.ID <- dplyr::recode(df$MANUAL.ID, "F" = "Incorrect", "T" = "Correct")
 df$MANUAL.ID <- factor(df$MANUAL.ID, levels = c("Incorrect", "Correct"))
 
 # Compute proportion of each label per species
